@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block head%}
+
+{% endblock head%}
+{% block body%}
+
+{% if item%}
+{%for i in item%}
+    <div class="card" style="width: 18rem;">
+            <a href="{{ i.get_product_view }}">
+                <img src="{{i.image_url}}" class="card-img-top" alt="{{ i.product_name}}" width="200" height="200">
+            </a>
+            <div class="card-body">
+                <a href="{{ i.get_product_view }}" style="text-decoration:none;color:black" name="Title"><h5 class="card-title" >{{ i.product_name }}</h5></a>
+                <p class="card-text"><b>Stock:</b> {{ i.stock}}</p>
+                <p class="card-text"><b>Price:</b> Nu.{{ i.price }}</p>
+                <form method="GET">
+                <a href="{{ i.get_product_view}}" class="btn btn-primary">Buy Now</a>
+                    </form>
+            </div>
+        </div>
+{% endfor %}
+{% else %}
+        <h1>No Results Found</h1>
+
+{% endif %}
+{% endblock body%}

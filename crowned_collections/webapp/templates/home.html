@@ -1,0 +1,31 @@
+{% extends "base.html"%}
+
+{% block head %}
+Crowned Collections
+{% endblock %}
+
+{% block body %}
+<div class="row h-100 align-items-top" >
+    {% for product in object_list reversed%}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <a href="{{ product.get_product_view }}">
+                <img src="{{product.image_url}}" class="card-img-top" alt="{{ product.product_name}}" width="200" height="200">
+            </a>
+            <div class="card-body">
+                <a href="{{ product.get_product_view }}" style="text-decoration:none;color:black" name="Title"><h5 class="card-title" >{{ product.product_name }}</h5></a>
+                <p class="card-text"><b>Stock:</b> {{ product.stock}}</p>
+                <p class="card-text"><b>Price:</b> Nu.{{ product.price }}</p>
+                <form method="GET">
+                <a href="{{ product.get_product_view}}" class="btn btn-primary">Buy Now</a>
+                    </form>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+<hr>
+    <center><b>Copyright © 2021 Crowned Collections.All rights reserved.</b></center>
+
+{% endblock %}
