@@ -16,18 +16,18 @@
     </p>
 
 </div>
-<form>
-    <div class="container-sm border border-3 border-dark " style="width:550px">
+<form action="{% url 'webapp:home' %}">
+    <div class="container-sm border border-3 border-dark" style="width:550px">
         <div class="row">
-                    <div class="col-md-10 mb-3 ">
-                        <label for="cc-name">Name on card</label>
+                    <div class="col-md-10 mb-3 p-3">
+                        <label for="cc-name">Name on Card</label>
                         <input type="text" class="form-control rounded-0 border-2 border-dark" id="cc-name" placeholder="Name" required>
                         <small class="text-muted">Full name as displayed on card</small>
                         <div class="invalid-feedback"> Name on card is required </div>
                     </div>
             <div class="row">
                 <div class="col-md-10 mb-3">
-                        <label for="cc-number">Credit card number</label>
+                        <label for="cc-number">Credit Card Number</label>
                         <input type="text" class="form-control rounded-0 border-2 border-dark" id="cc-number" placeholder="0000 0000 0000 0000" required>
                         <div class="invalid-feedback"> Credit card number is required </div>
                     </div>
@@ -48,7 +48,7 @@
                 </div>
                 <hr class="mb-3">
             <div class="p-3">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+               <button class="btn btn-primary btn-lg btn-block" onclick= type="submit">Continue to checkout</button>
             </div>
 
 

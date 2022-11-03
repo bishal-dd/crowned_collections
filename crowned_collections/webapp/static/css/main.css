@@ -14,3 +14,12 @@ input, input[type="text"]{
     border-width: 5px 0px 5px 0px;
     padding: 10px;
 }
+#cicon{
+        width:40px;
+}
+#buybutton{
+    width: 100px;
+}
+body{
+background-color:white;
+}

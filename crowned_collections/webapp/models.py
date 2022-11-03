@@ -35,3 +35,7 @@ class Order(models.Model):
     address = models.CharField(max_length=100, null=False)
 
 
+class Cart(models.Model):
+    product_name = models.CharField(max_length=100, null=False)
+    image_url = models.CharField(max_length=2083, null=False)
+    price = models.IntegerField(null=False)

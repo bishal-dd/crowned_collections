@@ -7,8 +7,8 @@ Crowned Collections
 {% block body %}
 <div class="row h-100 align-items-top" >
     {% for product in object_list reversed%}
-    <div class="col">
-        <div class="card" style="width: 18rem;">
+    <div class="col" >
+        <div class="card rounded-2" style="width: 18rem;box-shadow: 10px 10px 5px #aaaaaa;" >
             <a href="{{ product.get_product_view }}">
                 <img src="{{product.image_url}}" class="card-img-top" alt="{{ product.product_name}}" width="200" height="200">
             </a>
@@ -17,9 +17,11 @@ Crowned Collections
                 <p class="card-text"><b>Stock:</b> {{ product.stock}}</p>
                 <p class="card-text"><b>Price:</b> Nu.{{ product.price }}</p>
                 <form method="GET">
-                <a href="{{ product.get_product_view}}" class="btn btn-primary">Buy Now</a>
-                    <a href="#" class="btn btn-danger">Add to Cart</a>
-                    </form>
+                <a href="{{ product.get_product_view}}" class="btn btn-primary" id="buybutton" style="box-shadow: 10px 10px 5px #aaaaaa;">Buy Now</a>
+
+                        <!-- <a href="" type="submit" class="btn btn-danger">Add to Cart</a> -->
+                </form>
+
             </div>
         </div>
 

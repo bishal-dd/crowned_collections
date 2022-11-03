@@ -10,7 +10,19 @@ def about(request):
 
 
 def checkout(request):
+    def post():
+        return redirect('webapp:home')
     return render(request, 'checkout.html')
+
+
+def cart(request):
+    return render(request, 'cart.html')
+
+def add_to_cart(request, slug):
+    product_name = get_object_or_404(Product, slug=slug)
+    order_item = Order.objects.create(product_name=str(product_name))
+    order_item.save()
+    return redirect('webapp:order', slug=slug)
 
 
 def products(request):
@@ -49,20 +61,13 @@ class OrderView(DetailView):
             )
             messages.success(self.request, 'Your order has been placed')
             order.save()
-            return redirect('webapp:about')
+            return redirect('webapp:checkout')
         return redirect('webapp:order')
-
-
-def add_to_cart(request, slug):
-    product_name = get_object_or_404(Product, slug=slug)
-    order_item = Order.objects.create(product_name=str(product_name))
-    order_item.save()
-    return redirect('webapp:order', slug=slug)
 
 
 def searchbar(request):
     if request.method == 'GET':
-        search = request.GET.get('search').lower()
+        search = request.GET.get('search')
         item = Product.objects.all().filter(product_name=search)
         print(item)
         return render(request, 'searchbar.html', {'item': item})
